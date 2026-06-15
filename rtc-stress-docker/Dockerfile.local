@@ -1,0 +1,26 @@
+FROM hub.agoralab.co/rtn-ci/stress:rtc_hybrid_tools-20260615-183229
+
+WORKDIR /home/bbt
+
+COPY *.py /home/bbt/
+COPY cpu.sh stopAll.sh meeting-entrypoint.sh \
+     start-meeting-container-server.sh stop-meeting-container-server.sh \
+     case3_fa_999999.sh case5.sh check_run.sh case1_1v1_70c.sh \
+     /home/bbt/
+COPY *.so sample_send_h264_pcm /home/bbt/
+COPY *.h264 *.wav /home/bbt/
+COPY Dockerfile /tmp/
+
+RUN chmod +x \
+    /home/bbt/sample_send_h264_pcm \
+    /home/bbt/meeting-entrypoint.sh \
+    /home/bbt/start-meeting-container-server.sh \
+    /home/bbt/stop-meeting-container-server.sh \
+    /home/bbt/stopAll.sh \
+    /home/bbt/cpu.sh \
+    /home/bbt/case3_fa_999999.sh \
+    /home/bbt/case5.sh \
+    /home/bbt/check_run.sh
+
+EXPOSE 8088
+CMD ["python3", "/home/bbt/meeting_container_server.py"]
