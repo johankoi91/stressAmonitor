@@ -1,3 +1,6 @@
+# 内网/离线环境无法访问 Docker Hub 时，可用以下镜像源替代：
+# docker pull docker.m.daocloud.io/library/ubuntu:18.04
+# docker tag docker.m.daocloud.io/library/ubuntu:18.04 ubuntu:18.04
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
