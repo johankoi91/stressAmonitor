@@ -6,5 +6,18 @@ nload_0.7.4-2build3_amd64.deb
 *.tar
 *.tar.gz
 
+# 运行时产物
+*.log
+*.pid
+nohup.out
+__pycache__/
+*.pyc
+*.pyo
+io.agora.rtc_sdk/
+common_resource/
+agora_cache.db
+agoradns.dat
+agorareport.dat
+
 # macOS
 .DS_Store
