@@ -1,0 +1,1 @@
+python3 stress_special_2.py --channel_count 15 --user_per_process 5 --token aab8b8f5a8cd4469a63042fcfafe7063 --local_ap 55.145.1.200 --local_ap_cert ap.1145326.agora.local  --video_fps 15 --cname_base stress_poc  --number_start 1000 --method start --ip 55.145.1.20 --port 4001

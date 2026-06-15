@@ -1,0 +1,10 @@
+# 忽略不需要托管的目录和文件
+agora-private-rtc-v2_3_9-x86_64/
+nload_0.7.4-2build3_amd64.deb
+
+# 离线镜像包
+*.tar
+*.tar.gz
+
+# macOS
+.DS_Store
