@@ -70,7 +70,17 @@
               结果前缀 PREFIX
               <input name="prefix" placeholder="web_console" />
             </label>
-            <p class="hint full-row">Locust 固定使用 Web UI 手动控制模式，端口 8089；启动时自动附加 -u、-r 和 --autostart。启动后访问 http://服务器IP:8089 查看测试结果。</p>
+            <label>
+              日志级别 LOG LEVEL
+              <select name="logLevel">
+                <option value="INFO">INFO</option>
+                <option value="DEBUG">DEBUG</option>
+                <option value="WARNING">WARNING</option>
+                <option value="ERROR">ERROR</option>
+                <option value="CRITICAL">CRITICAL</option>
+              </select>
+            </label>
+            <p class="hint full-row">Locust 固定使用 Web UI 手动控制模式，端口 8089；启动时自动附加 -u、-r、--autostart 和 -L 日志级别。启动后访问 http://服务器IP:8089 查看测试结果。</p>
           </div>
         </div>
 

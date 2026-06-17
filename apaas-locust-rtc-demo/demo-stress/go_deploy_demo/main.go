@@ -161,6 +161,7 @@ type createStressTaskRequest struct {
 	SpawnRate           int               `json:"spawnRate"`
 	RunTime             string            `json:"runTime"`
 	Prefix              string            `json:"prefix"`
+	LogLevel            string            `json:"logLevel"`
 	WebUI               bool              `json:"webUI"`
 	AutoStart           bool              `json:"autostart"`
 	RoomUUID            string            `json:"roomUuid"`
@@ -245,11 +246,13 @@ func buildTask(req createStressTaskRequest) (*stressTask, error) {
 		spawnRate := defaultInt(req.SpawnRate, 1)
 		runTime := defaultString(req.RunTime, "60s")
 		prefix := defaultString(req.Prefix, "web_console_"+id)
+		logLevel := normalizeLocustLogLevel(req.LogLevel)
 		command = []string{
 			"python3", "-m", "locust",
 			"-f", "/opt/apaas_scene/locustfile.py",
 			"--host", req.Host,
 			"--csv", filepath.Join(resultDir, prefix),
+			"-L", logLevel,
 		}
 		if req.WebUI {
 			command = append(command,
@@ -705,6 +708,15 @@ func defaultString(value string, defaultValue string) string {
 		return value
 	}
 	return defaultValue
+}
+
+func normalizeLocustLogLevel(value string) string {
+	switch strings.ToUpper(strings.TrimSpace(value)) {
+	case "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL":
+		return strings.ToUpper(strings.TrimSpace(value))
+	default:
+		return "INFO"
+	}
 }
 
 func TlsHandler(port int) gin.HandlerFunc {
