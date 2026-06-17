@@ -30,5 +30,4 @@ apaas-locust-rtc-demo/demo-stress/go_deploy_demo/web-demo/key/
 apaas-locust-rtc-demo/demo-stress/go_deploy_demo/agora_sdk_server
 apaas-locust-rtc-demo/demo-stress/go_deploy_demo/agora_sdk_server_linux
 
-# Go 依赖（通过 go mod download 获取）
-apaas-locust-rtc-demo/demo-stress/go_deploy_demo/vendor/
+

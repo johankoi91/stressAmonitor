@@ -9,6 +9,27 @@ echo "================================================"
 echo "Mode: ${MODE}"
 echo ""
 
+# 从环境变量注入 SSL 证书（base64 编码）
+# 用法：
+#   docker run -e TLS_CERT="$(base64 < cert.pem)" -e TLS_KEY="$(base64 < key.pem)" IMAGE
+# 若环境变量未设置，则跳过（Go server 启动时会因找不到证书而报错）
+TLS_DIR="/opt/go_deploy_demo/web-demo/key"
+TLS_CERT_PATH="${TLS_DIR}/edge.rtcdevelopers.com.pem"
+TLS_KEY_PATH="${TLS_DIR}/edge.rtcdevelopers.com-key.pem"
+
+if [ -n "${TLS_CERT}" ] && [ -n "${TLS_KEY}" ]; then
+    mkdir -p "${TLS_DIR}"
+    echo "${TLS_CERT}" | base64 -d > "${TLS_CERT_PATH}"
+    echo "${TLS_KEY}"  | base64 -d > "${TLS_KEY_PATH}"
+    echo "[entrypoint] SSL 证书已从环境变量写入 ${TLS_DIR}"
+elif [ ! -f "${TLS_CERT_PATH}" ] || [ ! -f "${TLS_KEY_PATH}" ]; then
+    echo "[entrypoint] 警告: 未找到 SSL 证书文件，且未设置 TLS_CERT / TLS_KEY 环境变量"
+    echo "             Go demo server 将无法启动 HTTPS 服务"
+    echo "             请通过以下方式传入证书："
+    echo "               -e TLS_CERT=\"\$(base64 < cert.pem)\""
+    echo "               -e TLS_KEY=\"\$(base64 < key.pem)\""
+fi
+
 case "${MODE}" in
   locust|stress)
     echo "Starting Locust stress testing only..."
