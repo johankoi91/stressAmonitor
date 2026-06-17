@@ -1,7 +1,7 @@
 # ============================================================
 # Stage 1: 编译 Go server
 # ============================================================
-FROM golang:1.21-alpine AS go-builder
+FROM docker.m.daocloud.io/library/golang:1.21-alpine AS go-builder
 
 WORKDIR /build
 
@@ -15,13 +15,13 @@ RUN go build -mod=vendor -o agora_sdk_server_linux .
 # ============================================================
 # Stage 2: 运行时镜像
 # ============================================================
-FROM python:3.8-slim
+FROM docker.m.daocloud.io/library/python:3.8-slim
 
 LABEL description="APaaS Locust + Go Demo Server"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN pip install --no-cache-dir \
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple \
         locust==2.24.1 \
         supervisor==4.2.5 \
     && mkdir -p \

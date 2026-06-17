@@ -15,9 +15,11 @@
 
 ```bash
 mkdir -p /data/apaas_scene
-apaas-locust-with-demo-console-persist-webui-offline.tar.gz 放到/data/apaas_scene下面，然后
+apaas-locust-rtc-demo-v1-offline.tar.gz
+ 放到/data/apaas_scene下面，然后
 cd /data/apaas_scene
-docker load -i apaas-locust-with-demo-console-persist-webui-offline.tar.gz
+docker load -i apaas-locust-rtc-demo-v1-offline.tar.gz
+
 ```
 
 
@@ -27,28 +29,22 @@ docker load -i apaas-locust-with-demo-console-persist-webui-offline.tar.gz
 
 ```bash
 docker run -d \
-  --name apaas-console \
-  --network host \
+  --name rtc-demo \
+  -p 8800:8800 \
+  -p 8089:8089 \
+  -p 5557:5557 \
   -v /opt/results:/results \
-  --restart unless-stopped \
-  apaas-locust-with-demo:py38-2.24.1-go1.21.5-console-persist-webui
+  apaas-locust-rtc-demo:v1 both
 ```
 ---
 
 ## 2. 控制台操作说明
 
-运行后打开：
-
-```text
-https://服务器IP:8800/web-demo/stress-console/
-```
-注意：
-- 如果浏览器提示证书不受信任，选择继续访问
-
-
 ### 2.1 执行顺序
 
-在https://服务器IP:8800/web-demo/stress-console/ 控制台页面：
+打开 https://服务器IP:8800/web-demo/stress-console/ 控制台页面：
+注意：
+- 如果浏览器提示证书不受信任，选择继续访问
 
 1. 任务类型选择 `Locust 接口压测`
 2. 填写 APaaS Host : http://20.1.125.171
@@ -57,12 +53,6 @@ https://服务器IP:8800/web-demo/stress-console/
 5. 设置启动速率 `-r` 1
 6. 设置运行时长，默认 `600s` 可以设置 `12000`
 7. 点击「启动任务」
-8. 打开 Locust Web UI 查看压测指标：
-
-```text
-http://服务器IP:8089
-```
-同一时间只允许一个 Locust Web UI 任务。启动新 Locust 任务前，控制台会自动取消旧任务并释放 8089。
 
 
 ## 3. 指标查看
@@ -151,19 +141,100 @@ container_logs/
 
 ## 4. 命令行执行方式
 
-如果不用控制台，也可以直接通过命令行执行。
+最新镜像统一使用：
 
-### 4.1 smoke
+```text
+apaas-locust-rtc-demo:v1
+```
+
+如果是离线部署，先导入镜像包：
+
+```bash
+docker load -i apaas-locust-rtc-demo-v1-offline.tar.gz
+```
+
+确认镜像：
+
+```bash
+docker images | grep apaas-locust-rtc-demo
+```
+
+预期能看到：
+
+```text
+apaas-locust-rtc-demo   v1   0b40a217684e   ...   261MB
+```
+
+### 4.1 启动控制台服务
+
+推荐先启动常驻服务，使用 Web 控制台执行 smoke、locust 和 Demo URL 生成等操作。
+
+```bash
+docker run -d \
+  --name rtc-demo \
+  -p 8800:8800 \
+  -p 8089:8089 \
+  -p 5557:5557 \
+  -v /opt/results:/results \
+  apaas-locust-rtc-demo:v1 both
+```
+
+端口说明：
+
+| 端口 | 说明 |
+|---:|---|
+| 8800 | RTC Demo 页面和压测控制台 HTTPS 服务 |
+| 8089 | Locust Web UI，压测任务启动后访问 |
+| 5557 | Locust Worker 通信端口 |
+
+访问地址：
+
+```text
+https://服务器IP:8800/web-demo/stress-console/
+```
+
+RTC Demo 页面：
+
+```text
+https://服务器IP:8800/web-demo/customVideoSource/
+```
+
+Locust Web UI：
+
+```text
+http://服务器IP:8089/
+```
+
+如果已有同名容器，先删除再启动：
+
+```bash
+docker rm -f rtc-demo
+```
+
+### 4.2 smoke
+
+如果不用控制台，也可以直接通过命令行执行 smoke 单链路验证。
 
 ```bash
 docker run --rm --network host \
   -e AGORA_APP_ID='你的 app_id' \
   -e AGORA_APP_CERTIFICATE='你的 app_certificate' \
   -e APAAS_HOST='http://目标APaaS入口' \
-  apaas-locust-with-demo:py38-2.24.1-go1.21.5-console-persist-webui smoke
+  -v /opt/results:/results \
+  apaas-locust-rtc-demo:v1 smoke
 ```
 
-### 4.2 locust
+说明：
+
+| 环境变量 | 说明 |
+|---|---|
+| `AGORA_APP_ID` | Agora 项目的 App ID |
+| `AGORA_APP_CERTIFICATE` | Agora 项目的 App Certificate |
+| `APAAS_HOST` | APaaS 接口入口地址，例如 `http://172.31.x.x:xxxx` |
+
+### 4.3 locust
+
+命令行方式直接执行接口压测：
 
 ```bash
 docker run --rm --network host \
@@ -175,10 +246,20 @@ docker run --rm --network host \
   -e RUN_TIME=120s \
   -e PREFIX=stress_50u \
   -v /opt/results:/results \
-  apaas-locust-with-demo:py38-2.24.1-go1.21.5-console-persist-webui locust
+  apaas-locust-rtc-demo:v1 locust
 ```
 
-### 4.3 不同并发规模参考
+说明：
+
+| 环境变量 | 说明 |
+|---|---|
+| `HOST` | APaaS 接口入口地址 |
+| `USERS` | 并发用户数 |
+| `SPAWN_RATE` | 每秒启动用户数 |
+| `RUN_TIME` | 压测持续时间，例如 `60s`、`5m` |
+| `PREFIX` | 结果文件名前缀 |
+
+### 4.4 不同并发规模参考
 
 | 用户数 | SPAWN_RATE | RUN_TIME | 说明 |
 |---:|---:|---|---|
@@ -189,7 +270,7 @@ docker run --rm --network host \
 | 500 | 20 | 300s | 大并发压测 |
 | 1000 | 30 | 600s | 极限压测 |
 
-### 4.4 命令行结果文件
+### 4.5 命令行结果文件
 
 挂载 `-v /opt/results:/results` 后，结果直接保存在宿主机目录：
 
@@ -201,6 +282,12 @@ docker run --rm --network host \
 ├── *_exceptions.csv
 └── logs/
     └── apaas_test_YYYYmmdd_HHMMSS.log
+```
+
+控制台方式执行的任务会保存到：
+
+```text
+/opt/results/web-console/{taskId}/
 ```
 
 ---
@@ -222,18 +309,6 @@ docker run --rm --network host \
 ---
 
 ## 6. 镜像能力
-
-当前离线镜像：
-
-```text
-apaas-locust-with-demo:py38-2.24.1-go1.21.5-console-persist-webui
-```
-
-离线包文件：
-
-```text
-apaas-locust-with-demo-console-persist-webui-offline.tar.gz
-```
 
 镜像内置：
 
