@@ -21,3 +21,14 @@ agorareport.dat
 
 # macOS
 .DS_Store
+
+# apaas-locust-rtc-demo
+# SSL 证书（敏感文件）
+apaas-locust-rtc-demo/demo-stress/go_deploy_demo/web-demo/key/
+
+# Go 编译产物
+apaas-locust-rtc-demo/demo-stress/go_deploy_demo/agora_sdk_server
+apaas-locust-rtc-demo/demo-stress/go_deploy_demo/agora_sdk_server_linux
+
+# Go 依赖（通过 go mod download 获取）
+apaas-locust-rtc-demo/demo-stress/go_deploy_demo/vendor/

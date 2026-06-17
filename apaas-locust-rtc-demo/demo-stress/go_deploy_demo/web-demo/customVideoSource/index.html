@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTC 视频通话</title>
+  <link rel="stylesheet" href="../assets/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <div id="join-toast" class="join-toast" style="display:none;">
+    <span id="join-toast-msg"></span>
+    <button class="join-toast-close" onclick="this.parentElement.style.display='none'">&times;</button>
+  </div>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#58a6ff" stroke-width="1.5"/>
+            <path d="M8 12l2.5 2.5L16 9" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>RTC Console</span>
+        </div>
+      </div>
+
+      <form id="join-form" class="sidebar-form" autocomplete="off">
+
+        <div class="form-section">
+          <div class="form-section-label">频道配置</div>
+          <div class="field-group">
+            <label class="field-label" for="appid">App ID</label>
+            <input id="appid" type="text" class="field-input" placeholder="xxxxxxxxxxxxxxxx">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="token">Token <span class="field-optional">可选</span></label>
+            <input id="token" type="text" class="field-input" placeholder="007eJx...">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="channel">频道名</label>
+            <input id="channel" type="text" class="field-input" placeholder="my-channel" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="uid">User ID <span class="field-optional">可选</span></label>
+            <input id="uid" type="text" class="field-input" placeholder="0">
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-label">视频源</div>
+          <div class="field-group">
+            <label class="field-label" for="stream-source">来源</label>
+            <select id="stream-source" class="field-input field-select">
+              <option value="camera">摄像头</option>
+              <option value="mp4" selected>Sample.mp4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-label">接入点配置</div>
+          <div class="field-group">
+            <label class="field-label" for="ap-server-list">AP Server</label>
+            <input id="ap-server-list" type="text" class="field-input" value="bingqi.edge.rtcdevelopers.com">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="ap-domain">Domain</label>
+            <input id="ap-domain" type="text" class="field-input" value="edge.rtcdevelopers.com">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="ap-port">Port</label>
+            <input id="ap-port" type="number" class="field-input" value="10443">
+          </div>
+        </div>
+
+        <div class="sidebar-actions">
+          <button id="join" type="button" class="btn-action btn-primary-action">加入（主播）</button>
+          <button id="audience-join" type="button" class="btn-action btn-secondary-action">加入（观众）</button>
+          <button id="leave" type="button" class="btn-action btn-danger-action" disabled>离开</button>
+        </div>
+
+      </form>
+    </aside>
+
+    <main class="main-content">
+      <div class="video-area">
+        <div class="video-slot" id="local-slot">
+          <div class="video-slot-label" id="local-player-name"></div>
+          <div id="local-player" class="video-el"></div>
+          <div id="local-video" class="video-el video-placeholder" style="display:none;">
+            <video id="sample-video" src="./assets/sample.mp4" class="video-view" controls></video>
+          </div>
+          <div class="video-slot-empty" id="local-empty">本地视频</div>
+        </div>
+        <div id="remote-playerlist" class="remote-list"></div>
+      </div>
+    </main>
+
+  </div>
+
+  <div id="network-quality-panel" class="stats-panel" style="display:none;">
+    <div class="stats-panel-header" id="stats-drag-handle">
+      <span class="stats-panel-title">实时统计</span>
+      <div class="stats-header-actions">
+        <div class="stats-quality-badges">
+          <span class="stats-quality-item">↑ <span id="nq-uplink-badge" class="nq-badge nq-unknown">-</span></span>
+          <span class="stats-quality-item">↓ <span id="nq-downlink-badge" class="nq-badge nq-unknown">-</span></span>
+        </div>
+        <button class="stats-toggle-btn" id="stats-toggle" title="折叠/展开">－</button>
+      </div>
+    </div>
+    <div class="stats-body" id="stats-body">
+      <div class="stats-section">
+        <div class="stats-section-title"><span class="stats-section-icon">▲</span> 上行（本地）</div>
+        <div id="local-stats" class="stats-grid"></div>
+      </div>
+      <div id="remote-stats-section" class="stats-section" style="display:none;">
+        <div class="stats-section-title"><span class="stats-section-icon">▼</span> 下行（远端）</div>
+        <div id="remote-stats-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/jquery-3.4.1.min.js"></script>
+  <script src="../assets/bootstrap.bundle.min.js"></script>
+  <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+  <script src="customVideoSource.js"></script>
+</body>
+</html>

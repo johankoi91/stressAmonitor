@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APaaS 压测控制台</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">APaaS Stress Console</p>
+      <h1>会议接口压测控制台</h1>
+      <p class="subtitle">填写参数后直接调用容器内 smoke、Locust 或 URL 生成脚本。</p>
+    </div>
+    <div class="status-card">
+      <span id="apiStatus" class="status-dot">检查中</span>
+      <small>API 状态</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="panel-title">
+        <h2>启动任务</h2>
+        <p>选择任务类型并填写对应参数。</p>
+      </div>
+
+      <form id="taskForm" class="form-grid">
+        <label>
+          任务类型
+          <select id="taskType" name="type">
+            <option value="smoke">Smoke 单链路验证</option>
+            <option value="locust">Locust 接口压测</option>
+            <option value="gen-demo-urls">批量生成 Demo URL</option>
+          </select>
+        </label>
+
+        <label>
+          APaaS Host
+          <input name="host" placeholder="http://172.31.11.139:18080" />
+        </label>
+
+        <label>
+          Agora App ID
+          <input name="agoraAppId" value="f29d4dc623c741a3ad38ccaf27a8d2e2" />
+        </label>
+
+        <label>
+          Agora App Certificate
+          <input name="agoraAppCertificate" value="0b365e69c0ec4d2bb9900489a075b102" type="password" />
+        </label>
+
+        <div class="section locust-only">
+          <h3>Locust 参数</h3>
+          <div class="form-grid nested">
+            <label>
+              用户数 USERS
+              <input name="users" type="number" min="1" value="1" />
+            </label>
+            <label>
+              启动速率 SPAWN_RATE
+              <input name="spawnRate" type="number" min="1" value="1" />
+            </label>
+            <label>
+              运行时长 RUN_TIME
+              <input name="runTime" value="600s" placeholder="600s" />
+            </label>
+            <label>
+              结果前缀 PREFIX
+              <input name="prefix" placeholder="web_console" />
+            </label>
+            <p class="hint full-row">Locust 固定使用 Web UI 手动控制模式，端口 8089；启动时自动附加 -u、-r 和 --autostart。启动后访问 http://服务器IP:8089 查看测试结果。</p>
+          </div>
+        </div>
+
+        <div class="section urls-only hidden">
+          <h3>Demo URL 生成参数</h3>
+          <div class="form-grid nested">
+            <label>
+              Token API Host
+              <input name="tokenApiHost" placeholder="https://api-solutions-private.agoralab.co" />
+            </label>
+            <label>
+              Room UUID
+              <input name="roomUuid" placeholder="993201211" />
+            </label>
+            <label>
+              生成数量
+              <input name="count" type="number" min="1" value="1" />
+            </label>
+            <label>
+              Base URL
+              <input name="baseUrl" placeholder="https://solutions-apaas.agora.io" />
+            </label>
+            <label>
+              Version
+              <input name="version" placeholder="release_3.9.1" />
+            </label>
+            <label>
+              Build ID
+              <input name="buildId" placeholder="20260204_4784" />
+            </label>
+            <label>
+              Page
+              <input name="page" placeholder="recording" />
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="primary">启动任务</button>
+          <button type="button" id="refreshTasks">刷新任务</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>任务列表</h2>
+        <p>点击任务可查看实时日志。</p>
+      </div>
+      <div id="taskList" class="task-list empty">暂无任务</div>
+    </section>
+  </main>
+
+  <section class="panel log-panel">
+    <div class="panel-title row">
+      <div>
+        <h2>任务日志</h2>
+        <p id="selectedTaskText">尚未选择任务</p>
+      </div>
+      <div class="actions small-actions">
+        <button id="refreshLog" type="button">刷新日志</button>
+        <button id="downloadLogs" type="button">下载日志包</button>
+        <button id="cancelTask" type="button" class="danger">取消任务</button>
+      </div>
+    </div>
+    <pre id="logOutput">请选择一个任务查看日志。</pre>
+  </section>
+
+  <script src="./app.js"></script>
+</body>
+</html>

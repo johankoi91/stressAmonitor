@@ -1,0 +1,53 @@
+FROM apaas-locust-offline:py38-2.24.1
+
+LABEL description="APaaS Locust + Go Demo Server (with supervisor for both mode)"
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV GO_VERSION=1.21.5
+ENV GOPATH=/go
+ENV PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
+
+# 离线安装 supervisor（whl 文件已预下载，不需要联网）
+COPY setuptools-59.8.0-py3-none-any.whl /tmp/
+COPY supervisor-4.2.5-py2.py3-none-any.whl /tmp/
+RUN python3 -m pip install --no-index --no-deps /tmp/setuptools-59.8.0-py3-none-any.whl && \
+    python3 -m pip install --no-index --no-deps /tmp/supervisor-4.2.5-py2.py3-none-any.whl && \
+    rm /tmp/*.whl
+
+# 安装 Go
+COPY go1.21.5.linux-amd64.tar.gz /tmp/
+RUN tar -C /usr/local -xzf /tmp/go1.21.5.linux-amd64.tar.gz && \
+    rm /tmp/go1.21.5.linux-amd64.tar.gz && \
+    mkdir -p "$GOPATH/src" "$GOPATH/bin"
+
+# 拷贝 Go Demo Server
+WORKDIR /opt/go_deploy_demo
+COPY go_deploy_demo/go.mod ./
+COPY go_deploy_demo/go.sum ./
+COPY go_deploy_demo/vendor ./vendor
+COPY go_deploy_demo/main.go ./
+COPY go_deploy_demo/web-demo ./web-demo
+
+# 编译 Go server
+RUN go build -mod=vendor -o agora_sdk_server_linux . && \
+    chmod +x agora_sdk_server_linux
+
+# 拷贝启动脚本和 supervisor 配置
+COPY docker-entrypoint-with-demo.sh /opt/docker-entrypoint-with-demo.sh
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN chmod +x /opt/docker-entrypoint-with-demo.sh
+
+# 拷贝 APaaS 压测工程（覆盖基础镜像里的旧版本，保持最新）
+WORKDIR /opt/apaas_scene
+COPY src/ ./src/
+COPY locustfile.py ./
+COPY apaas_smoke.py ./
+
+# 拷贝 gen_demo_urls 工具脚本
+COPY demo-stress/gen_demo_urls/ ./gen_demo_urls/
+RUN chmod +x ./gen_demo_urls/*.sh 2>/dev/null || true
+
+EXPOSE 8800
+
+ENTRYPOINT ["/opt/docker-entrypoint-with-demo.sh"]
+CMD ["both"]
