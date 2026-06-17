@@ -150,6 +150,9 @@ class DynamicConfig:
             "app_certificate": "75e3a40a0d654a969b6d35577e634228",            # 客户secret
         }
 
+        # 从环境变量获取鉴权参数
+        self._update_from_env()
+
         # 从命令行参数获取Locust参数
         self._update_from_locust_args()
 
@@ -158,6 +161,23 @@ class DynamicConfig:
 
         # 输出配置信息
         self._print_config()
+
+    def _update_from_env(self):
+        """从环境变量更新 App ID 和 App Certificate"""
+        app_id = os.getenv("AGORA_APP_ID", "").strip()
+        app_certificate = os.getenv("AGORA_APP_CERTIFICATE", "").strip()
+
+        if app_id:
+            self._config["app_id"] = app_id
+            logger.info("从环境变量 AGORA_APP_ID 设置 app_id")
+        else:
+            logger.warning("未设置环境变量 AGORA_APP_ID，使用默认 app_id")
+
+        if app_certificate:
+            self._config["app_certificate"] = app_certificate
+            logger.info("从环境变量 AGORA_APP_CERTIFICATE 设置 app_certificate")
+        else:
+            logger.warning("未设置环境变量 AGORA_APP_CERTIFICATE，使用默认 app_certificate")
 
     def _update_from_locust_args(self):
         """从Locust命令行参数更新配置"""
