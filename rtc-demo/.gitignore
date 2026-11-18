@@ -1,0 +1,10 @@
+.DS_Store
+**/__pycache__/
+dist/
+.tools/
+
+web-demo/key/
+
+probes/**/node_modules/
+probes/**/results/
+probes/**/config.local.json

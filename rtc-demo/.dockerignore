@@ -1,0 +1,11 @@
+.git
+.DS_Store
+**/.DS_Store
+**/__pycache__
+*.tar
+*.tar.gz
+*.log
+dist/
+.tools/
+
+probes/

@@ -1,0 +1,16 @@
+{
+  "mode": "live",
+  "timeoutMs": 45000,
+  "holdMs": 5000,
+  "outputDir": "./results",
+  "mediaPath": "",
+  "appId": "",
+  "channel": "",
+  "accessPoints": {
+    "serverList": [],
+    "domain": "",
+    "port": 443
+  },
+  "publisher": { "uid": 101, "token": "" },
+  "subscriber": { "uid": 102, "token": "" }
+}

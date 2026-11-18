@@ -1,0 +1,8 @@
+{
+  "mode": "logic",
+  "timeoutMs": 12000,
+  "holdMs": 2000,
+  "outputDir": "./results",
+  "mediaPath": "",
+  "cases": []
+}
