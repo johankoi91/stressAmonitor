@@ -1,0 +1,10 @@
+.local/
+dist/
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+frontend/.env*.local
+*.log
+test-results/
+/deploy/.env
+/deploy/data/

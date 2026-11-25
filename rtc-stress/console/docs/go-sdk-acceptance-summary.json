@@ -1,0 +1,326 @@
+{
+  "taskId": "run-20261123-191832-e194f615c022",
+  "state": "completed",
+  "startedAt": "2026-11-23T19:18:54.906575181Z",
+  "finishedAt": "2026-11-23T19:28:56.704587555Z",
+  "engine": "go-sdk",
+  "sdkVersion": "2.6.6 / native 4.6.31.135",
+  "serviceLayout": "single",
+  "encodedAudioOnly": true,
+  "audioFormat": {
+    "sampleRate": 48000,
+    "audioChannels": 2
+  },
+  "channelCount": 200,
+  "configuredAudioSeconds": 600,
+  "serviceMultiSupported": false,
+  "serviceCreationProbe": {
+    "cRepeatedHandleEqual": true,
+    "publicCppRepeatedHandleEqual": true
+  },
+  "machines": [
+    {
+      "role": "A",
+      "processes": 20,
+      "services": 20,
+      "connections": 600,
+      "joined": 600,
+      "expectedStreams": 800,
+      "activeStreamsMin": 800,
+      "activeStreamsMax": 800,
+      "rssGiBStart": 5.234851837158203,
+      "rssGiBEnd": 6.394683837890625,
+      "rssGiBPeak": 6.394683837890625,
+      "rssGrowthMiBPerMinute": 136.21193551743218,
+      "goHeapMiBEnd": 70.62635803222656,
+      "encodedReceiveMbps": 19.02814491610544,
+      "pcmInputMbps": 236.30721215430881,
+      "pcmTargetMbps": 614.4,
+      "pcmRealtimeRatio": 0.38461460311573703,
+      "sendErrors": 0,
+      "metrics": {
+        "cpu": {
+          "mean": 99.74479645574388,
+          "max": 99.93777299999999
+        },
+        "receiveBps": {
+          "mean": 87041781.48775895,
+          "max": 90281810
+        },
+        "transmitBps": {
+          "mean": 55881668.88888889,
+          "max": 58969380
+        }
+      },
+      "rssGiBAtStop": 6.4106597900390625
+    },
+    {
+      "role": "B",
+      "processes": 10,
+      "services": 10,
+      "connections": 200,
+      "joined": 200,
+      "expectedStreams": 400,
+      "activeStreamsMin": 400,
+      "activeStreamsMax": 400,
+      "rssGiBStart": 1.837677001953125,
+      "rssGiBEnd": 1.8630905151367188,
+      "rssGiBPeak": 1.8641014099121094,
+      "rssGrowthMiBPerMinute": 2.984590713869858,
+      "goHeapMiBEnd": 17.55120086669922,
+      "encodedReceiveMbps": 9.521824028811542,
+      "pcmInputMbps": 0.0,
+      "pcmTargetMbps": 0,
+      "pcmRealtimeRatio": null,
+      "sendErrors": 0,
+      "metrics": {
+        "cpu": {
+          "mean": 19.54385741448141,
+          "max": 24.214659599999997
+        },
+        "receiveBps": {
+          "mean": 43339237.27984344,
+          "max": 45841820
+        },
+        "transmitBps": {
+          "mean": 1554374.9086105675,
+          "max": 2666379
+        }
+      },
+      "rssGiBAtStop": 1.8631668090820312
+    },
+    {
+      "role": "C",
+      "processes": 10,
+      "services": 10,
+      "connections": 200,
+      "joined": 200,
+      "expectedStreams": 400,
+      "activeStreamsMin": 400,
+      "activeStreamsMax": 400,
+      "rssGiBStart": 1.7716751098632812,
+      "rssGiBEnd": 1.7915687561035156,
+      "rssGiBPeak": 1.7927627563476562,
+      "rssGrowthMiBPerMinute": 2.3363315179872877,
+      "goHeapMiBEnd": 17.254257202148438,
+      "encodedReceiveMbps": 9.521589070170542,
+      "pcmInputMbps": 0.0,
+      "pcmTargetMbps": 0,
+      "pcmRealtimeRatio": null,
+      "sendErrors": 0,
+      "metrics": {
+        "cpu": {
+          "mean": 19.215729273547094,
+          "max": 21.456953799999997
+        },
+        "receiveBps": {
+          "mean": 43341570.18036072,
+          "max": 45859590
+        },
+        "transmitBps": {
+          "mean": 1570383.0238476954,
+          "max": 2622628
+        }
+      },
+      "rssGiBAtStop": 1.791717529296875
+    }
+  ],
+  "sourceOffsetMs": 5002.875,
+  "networkCapture6Seconds": {
+    "A": [
+      {
+        "direction": "rx",
+        "protocol": "UDP",
+        "mbps": 77.508,
+        "pps": 62468.7
+      },
+      {
+        "direction": "tx",
+        "protocol": "UDP",
+        "mbps": 41.168,
+        "pps": 33080.8
+      },
+      {
+        "direction": "tx",
+        "protocol": "TCP/other",
+        "mbps": 0.032,
+        "pps": 82.0
+      },
+      {
+        "direction": "rx",
+        "protocol": "TCP/8092",
+        "mbps": 0.279,
+        "pps": 116.6
+      },
+      {
+        "direction": "tx",
+        "protocol": "TCP/8092",
+        "mbps": 10.117,
+        "pps": 905.5
+      },
+      {
+        "direction": "rx",
+        "protocol": "TCP/other",
+        "mbps": 0.004,
+        "pps": 5.5
+      }
+    ],
+    "B": [
+      {
+        "direction": "rx",
+        "protocol": "UDP",
+        "mbps": 39.063,
+        "pps": 31410.2
+      },
+      {
+        "direction": "tx",
+        "protocol": "UDP",
+        "mbps": 1.227,
+        "pps": 1109.6
+      },
+      {
+        "direction": "rx",
+        "protocol": "TCP/other",
+        "mbps": 0.009,
+        "pps": 8.6
+      },
+      {
+        "direction": "tx",
+        "protocol": "TCP/other",
+        "mbps": 0.04,
+        "pps": 42.6
+      },
+      {
+        "direction": "tx",
+        "protocol": "TCP/8092",
+        "mbps": 0.125,
+        "pps": 24.9
+      },
+      {
+        "direction": "rx",
+        "protocol": "TCP/8092",
+        "mbps": 0.008,
+        "pps": 19.9
+      }
+    ],
+    "C": [
+      {
+        "direction": "rx",
+        "protocol": "UDP",
+        "mbps": 39.139,
+        "pps": 31458.3
+      },
+      {
+        "direction": "tx",
+        "protocol": "UDP",
+        "mbps": 1.184,
+        "pps": 1125.1
+      },
+      {
+        "direction": "rx",
+        "protocol": "TCP/other",
+        "mbps": 0.018,
+        "pps": 28.4
+      },
+      {
+        "direction": "tx",
+        "protocol": "TCP/other",
+        "mbps": 0.03,
+        "pps": 62.2
+      },
+      {
+        "direction": "tx",
+        "protocol": "TCP/8092",
+        "mbps": 0.125,
+        "pps": 25.0
+      },
+      {
+        "direction": "rx",
+        "protocol": "TCP/8092",
+        "mbps": 0.009,
+        "pps": 21.9
+      }
+    ]
+  },
+  "cleanup": {
+    "A": {
+      "remainingWorkerPids": []
+    },
+    "B": {
+      "remainingWorkerPids": []
+    },
+    "C": {
+      "remainingWorkerPids": []
+    }
+  },
+  "reconnectCheck": {
+    "before": {
+      "pids": [
+        427,
+        454,
+        481,
+        509,
+        538,
+        567,
+        597,
+        626,
+        658,
+        687
+      ],
+      "connections": 200,
+      "services": 10,
+      "encodedReceived": 598556279
+    },
+    "after": {
+      "pids": [
+        427,
+        454,
+        481,
+        509,
+        538,
+        567,
+        597,
+        626,
+        658,
+        687
+      ],
+      "connections": 200,
+      "services": 10,
+      "encodedReceived": 604642932
+    },
+    "samePids": true,
+    "receiveContinued": true
+  },
+  "runtimeLibraries": {
+    "A": {
+      "processCount": 20,
+      "libraryPaths": [
+        "/opt/rtc-stress-console/sdk/libagora_rtc_sdk.so"
+      ],
+      "sha256": {
+        "/opt/rtc-stress-console/rtc-sdk-worker": "dc4074cf184fbbd6d70f8c52e87c91ab2d47324f985efccd681f28f981189206",
+        "/opt/rtc-stress-console/sdk/libagora_rtc_sdk.so": "5f32d562d2fee5e06c9048b13a2541f2c4362ae6a03d0adc28cc347a4f347c14"
+      }
+    },
+    "B": {
+      "processCount": 10,
+      "libraryPaths": [
+        "/opt/rtc-stress-console/sdk/libagora_rtc_sdk.so"
+      ],
+      "sha256": {
+        "/opt/rtc-stress-console/rtc-sdk-worker": "dc4074cf184fbbd6d70f8c52e87c91ab2d47324f985efccd681f28f981189206",
+        "/opt/rtc-stress-console/sdk/libagora_rtc_sdk.so": "5f32d562d2fee5e06c9048b13a2541f2c4362ae6a03d0adc28cc347a4f347c14"
+      }
+    },
+    "C": {
+      "processCount": 10,
+      "libraryPaths": [
+        "/opt/rtc-stress-console/sdk/libagora_rtc_sdk.so"
+      ],
+      "sha256": {
+        "/opt/rtc-stress-console/rtc-sdk-worker": "dc4074cf184fbbd6d70f8c52e87c91ab2d47324f985efccd681f28f981189206",
+        "/opt/rtc-stress-console/sdk/libagora_rtc_sdk.so": "5f32d562d2fee5e06c9048b13a2541f2c4362ae6a03d0adc28cc347a4f347c14"
+      }
+    }
+  }
+}

@@ -8,3 +8,6 @@ web-demo/key/
 probes/**/node_modules/
 probes/**/results/
 probes/**/config.local.json
+
+services/log-receiver/data/
+services/log-receiver/dist/

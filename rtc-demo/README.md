@@ -69,3 +69,7 @@ docker compose run --build --rm rtc-probe
 ```
 
 默认离线逻辑自检；原版 SDK 本地文件轨道检查也在用例内。真实 RTC 模式需显式配置 App ID、接入点、两端 UID/Token 并启用网络。详细说明见 [探测说明](probes/custom-video/README.md)。探测器从应用镜像构建上下文中排除，应用镜像保持独立。
+
+## 私有化 SDK 日志接收
+
+独立接收服务见 [日志接收说明](services/log-receiver/README.md)，部署于 `https://ap.edge.rtcdevelopers.com:6444/upload/v1`。原始请求及解析内容保存在服务器 `/opt/rtc-log-receiver/data/`，不通过 HTTP 暴露文件。

@@ -1,0 +1,387 @@
+{
+  "taskId": "run-20261123-113216-771a1327dc84",
+  "state": "completed",
+  "createdAt": "2026-11-23T11:32:16.027088Z",
+  "startedAt": "2026-11-23T11:33:30.777383909Z",
+  "finishedAt": "2026-11-23T11:33:55.093739Z",
+  "plannedAudioSeconds": 20,
+  "channels": 200,
+  "totalProcesses": 42,
+  "totalConnections": 1000,
+  "requestedOffsetMs": 5000,
+  "observedFirstPCMOffsetMs": 5000.685,
+  "allProcessesExited": true,
+  "machines": [
+    {
+      "id": "A",
+      "expected": 600,
+      "connected": 0,
+      "joined": 600,
+      "processes": [
+        {
+          "id": "A-001",
+          "pid": 47,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-002",
+          "pid": 71,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-003",
+          "pid": 95,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-004",
+          "pid": 119,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-005",
+          "pid": 151,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-006",
+          "pid": 180,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-007",
+          "pid": 216,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-008",
+          "pid": 252,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-009",
+          "pid": 285,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-010",
+          "pid": 333,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-011",
+          "pid": 377,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-012",
+          "pid": 424,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-013",
+          "pid": 482,
+          "state": "exited",
+          "expected": 45,
+          "connected": 0
+        },
+        {
+          "id": "A-014",
+          "pid": 536,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        }
+      ],
+      "firstAudio": [
+        "2026-11-23T11:33:30.777356382Z",
+        "2026-11-23T11:33:35.778041404Z"
+      ],
+      "audioBytes": [
+        15734400,
+        11894400
+      ],
+      "audioTx": 40460160,
+      "audioRx": 1364225280
+    },
+    {
+      "id": "B",
+      "expected": 200,
+      "connected": 0,
+      "joined": 200,
+      "processes": [
+        {
+          "id": "B-001",
+          "pid": 45,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-002",
+          "pid": 68,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-003",
+          "pid": 92,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-004",
+          "pid": 115,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-005",
+          "pid": 146,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-006",
+          "pid": 175,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-007",
+          "pid": 206,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-008",
+          "pid": 240,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-009",
+          "pid": 276,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-010",
+          "pid": 313,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-011",
+          "pid": 350,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-012",
+          "pid": 392,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-013",
+          "pid": 435,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "B-014",
+          "pid": 478,
+          "state": "exited",
+          "expected": 5,
+          "connected": 0
+        }
+      ],
+      "firstAudio": [
+        null,
+        null
+      ],
+      "audioBytes": [
+        0,
+        0
+      ],
+      "audioTx": 0,
+      "audioRx": 285829760
+    },
+    {
+      "id": "C",
+      "expected": 200,
+      "connected": 0,
+      "joined": 200,
+      "processes": [
+        {
+          "id": "C-001",
+          "pid": 44,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-002",
+          "pid": 67,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-003",
+          "pid": 93,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-004",
+          "pid": 117,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-005",
+          "pid": 146,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-006",
+          "pid": 177,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-007",
+          "pid": 208,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-008",
+          "pid": 242,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-009",
+          "pid": 280,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-010",
+          "pid": 319,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-011",
+          "pid": 359,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-012",
+          "pid": 402,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-013",
+          "pid": 443,
+          "state": "exited",
+          "expected": 15,
+          "connected": 0
+        },
+        {
+          "id": "C-014",
+          "pid": 489,
+          "state": "exited",
+          "expected": 5,
+          "connected": 0
+        }
+      ],
+      "firstAudio": [
+        null,
+        null
+      ],
+      "audioBytes": [
+        0,
+        0
+      ],
+      "audioTx": 0,
+      "audioRx": 292013760
+    }
+  ],
+  "nativeLogChecks": {
+    "A": {
+      "nativeLogs": 14,
+      "joined": 600,
+      "audioSendersWithTX": 400,
+      "audioReceiversWithRX": 600,
+      "videoBytes": 0
+    },
+    "B": {
+      "nativeLogs": 14,
+      "joined": 200,
+      "audioSendersWithTX": 0,
+      "audioReceiversWithRX": 200,
+      "videoBytes": 0
+    },
+    "C": {
+      "nativeLogs": 14,
+      "joined": 200,
+      "audioSendersWithTX": 0,
+      "audioReceiversWithRX": 200,
+      "videoBytes": 0
+    }
+  }
+}

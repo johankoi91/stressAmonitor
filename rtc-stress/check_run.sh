@@ -1,1 +1,0 @@
-ps -el | grep sample_send_h26

@@ -1,0 +1,700 @@
+{
+  "taskId": "run-20261123-203534-7188047604b2",
+  "state": "completed",
+  "startedAt": "2026-11-23T20:35:45.050272949Z",
+  "finishedAt": "2026-11-23T20:45:45.7710908Z",
+  "distribution": "distributed",
+  "publisherChannels": [
+    0,
+    100,
+    100
+  ],
+  "sampleRate": 48000,
+  "audioChannels": 2,
+  "configuredSeconds": 600,
+  "machines": [
+    {
+      "group": "A",
+      "nodeId": "A",
+      "processes": 5,
+      "connections": 200,
+      "joined": 200,
+      "publishingChannels": 0,
+      "publishers": 0,
+      "uidsPerProcess": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "expectedStreams": 400,
+      "activeStreamsMin": 400,
+      "activeStreamsMax": 400,
+      "rssGiBFirst": 1.4617271423339844,
+      "rssGiBEnd": 1.4715347290039062,
+      "rssGrowthMiBPerMinute": 1.1915893285104637,
+      "pcmInputMbps": 0.0,
+      "pcmTargetMbps": 0.0,
+      "pcmRealtimeRatio": null,
+      "encodedReceiveMbps": 23.867032894075457,
+      "sendErrors": 0,
+      "sourceOffsetMs": null,
+      "metrics": {
+        "cpu": {
+          "mean": 12.182271135740741,
+          "max": 19.1807541
+        },
+        "receiveBps": {
+          "mean": 39155198.18518519,
+          "max": 39960340
+        },
+        "transmitBps": {
+          "mean": 27258146.80925926,
+          "max": 41342180
+        }
+      },
+      "opusPacketUsMin": 20000,
+      "opusPacketUsMax": 20000,
+      "encodedCodecTypes": [
+        1
+      ],
+      "opusMonoConnections": 200,
+      "opusStereoConnections": 0
+    },
+    {
+      "group": "B",
+      "nodeId": "B",
+      "processes": 10,
+      "connections": 400,
+      "joined": 400,
+      "publishingChannels": 100,
+      "publishers": 200,
+      "uidsPerProcess": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "expectedStreams": 600,
+      "activeStreamsMin": 600,
+      "activeStreamsMax": 600,
+      "rssGiBFirst": 3.1238746643066406,
+      "rssGiBEnd": 3.167194366455078,
+      "rssGrowthMiBPerMinute": 4.635578507501589,
+      "pcmInputMbps": 307.1313699606776,
+      "pcmTargetMbps": 307.2,
+      "pcmRealtimeRatio": 0.9997765949240808,
+      "encodedReceiveMbps": 35.80831602062285,
+      "sendErrors": 0,
+      "sourceOffsetMs": 4999.852,
+      "metrics": {
+        "cpu": {
+          "mean": 91.45904170881226,
+          "max": 94.589433
+        },
+        "receiveBps": {
+          "mean": 57260600.07662835,
+          "max": 57672870
+        },
+        "transmitBps": {
+          "mean": 21988783.37164751,
+          "max": 23875940
+        }
+      },
+      "opusPacketUsMin": 20000,
+      "opusPacketUsMax": 20000,
+      "encodedCodecTypes": [
+        1
+      ],
+      "opusMonoConnections": 400,
+      "opusStereoConnections": 0
+    },
+    {
+      "group": "C",
+      "nodeId": "C",
+      "processes": 10,
+      "connections": 400,
+      "joined": 400,
+      "publishingChannels": 100,
+      "publishers": 200,
+      "uidsPerProcess": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "expectedStreams": 600,
+      "activeStreamsMin": 600,
+      "activeStreamsMax": 600,
+      "rssGiBFirst": 2.9662132263183594,
+      "rssGiBEnd": 3.0102996826171875,
+      "rssGrowthMiBPerMinute": 5.002731170457538,
+      "pcmInputMbps": 307.0792217631181,
+      "pcmTargetMbps": 307.2,
+      "pcmRealtimeRatio": 0.9996068416768167,
+      "encodedReceiveMbps": 35.806189582677355,
+      "sendErrors": 0,
+      "sourceOffsetMs": 4999.46,
+      "metrics": {
+        "cpu": {
+          "mean": 91.35190808045976,
+          "max": 94.349208
+        },
+        "receiveBps": {
+          "mean": 57256627.01149426,
+          "max": 57692180
+        },
+        "transmitBps": {
+          "mean": 21940377.049808428,
+          "max": 24187980
+        }
+      },
+      "opusPacketUsMin": 20000,
+      "opusPacketUsMax": 20000,
+      "encodedCodecTypes": [
+        1
+      ],
+      "opusMonoConnections": 400,
+      "opusStereoConnections": 0
+    }
+  ],
+  "source0StartSpreadMs": 0.5730000000000001,
+  "source1StartSpreadMs": 0.18100000000000002,
+  "totalRealtimeRatio": 0.9996917183004488,
+  "audioScenario": "standard",
+  "version": "0.7.0",
+  "cleanup": {
+    "A": {
+      "remainingWorkerPids": []
+    },
+    "B": {
+      "remainingWorkerPids": []
+    },
+    "C": {
+      "remainingWorkerPids": []
+    }
+  },
+  "packetProbes": {
+    "chorus": {
+      "encodedCodecTypes": [
+        1
+      ],
+      "audioScenario": "chorus",
+      "opusPacketUsMin": 10000,
+      "opusPacketUsMax": 10000,
+      "opusMonoConnections": 6,
+      "opusStereoConnections": 0,
+      "pid": 7,
+      "rssBytes": 91725824,
+      "goHeapBytes": 3001848,
+      "threads": 27,
+      "version": "Go SDK 2.6.6 / native 4.6.31.135",
+      "layout": "single",
+      "services": 1,
+      "connections": 6,
+      "pcmSent": 20229120,
+      "encodedReceived": 1615918,
+      "packets": 20959,
+      "activeStreams": 8,
+      "receivedStreams": 8,
+      "expectedStreams": 8,
+      "sendErrors": 0,
+      "sendBitrateKbps": 674,
+      "receiveBitrateKbps": 0,
+      "decodeEnabled": false
+    },
+    "standard": {
+      "encodedCodecTypes": [
+        1
+      ],
+      "audioScenario": "standard",
+      "opusPacketUsMin": 20000,
+      "opusPacketUsMax": 20000,
+      "opusMonoConnections": 6,
+      "opusStereoConnections": 0,
+      "pid": 7,
+      "rssBytes": 84090880,
+      "goHeapBytes": 2902624,
+      "threads": 23,
+      "version": "Go SDK 2.6.6 / native 4.6.31.135",
+      "layout": "single",
+      "services": 1,
+      "connections": 6,
+      "pcmSent": 20238720,
+      "encodedReceived": 1556416,
+      "packets": 10470,
+      "activeStreams": 8,
+      "receivedStreams": 8,
+      "expectedStreams": 8,
+      "sendErrors": 0,
+      "sendBitrateKbps": 262,
+      "receiveBitrateKbps": 0,
+      "decodeEnabled": false
+    }
+  },
+  "allocationBaseline": {
+    "taskId": "run-20261123-201442-bfeae8039e4f",
+    "state": "completed",
+    "startedAt": "2026-11-23T20:14:53.93828485Z",
+    "finishedAt": "2026-11-23T20:19:55.100791455Z",
+    "distribution": "distributed",
+    "publisherChannels": [
+      0,
+      100,
+      100
+    ],
+    "sampleRate": 48000,
+    "audioChannels": 2,
+    "configuredSeconds": 300,
+    "machines": [
+      {
+        "group": "A",
+        "nodeId": "A",
+        "processes": 5,
+        "connections": 200,
+        "joined": 200,
+        "publishingChannels": 0,
+        "publishers": 0,
+        "uidsPerProcess": [
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "expectedStreams": 400,
+        "activeStreamsMin": 400,
+        "activeStreamsMax": 400,
+        "rssGiBFirst": 1.6240882873535156,
+        "rssGiBEnd": 1.6460800170898438,
+        "rssGrowthMiBPerMinute": 5.444988089968728,
+        "pcmInputMbps": 0.0,
+        "pcmTargetMbps": 0.0,
+        "pcmRealtimeRatio": null,
+        "encodedReceiveMbps": 17.18189127267795,
+        "sendErrors": 0,
+        "sourceOffsetMs": null,
+        "metrics": {
+          "cpu": {
+            "mean": 27.95360217581967,
+            "max": 31.162792
+          },
+          "receiveBps": {
+            "mean": 78426163.40163934,
+            "max": 80627080
+          },
+          "transmitBps": {
+            "mean": 14637751.225409836,
+            "max": 17725430
+          }
+        }
+      },
+      {
+        "group": "B",
+        "nodeId": "B",
+        "processes": 10,
+        "connections": 400,
+        "joined": 400,
+        "publishingChannels": 100,
+        "publishers": 200,
+        "uidsPerProcess": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "expectedStreams": 600,
+        "activeStreamsMin": 600,
+        "activeStreamsMax": 600,
+        "rssGiBFirst": 3.493824005126953,
+        "rssGiBEnd": 3.7165985107421875,
+        "rssGrowthMiBPerMinute": 56.99993865946518,
+        "pcmInputMbps": 213.507127932646,
+        "pcmTargetMbps": 307.2,
+        "pcmRealtimeRatio": 0.6950101820724154,
+        "encodedReceiveMbps": 25.76655727945831,
+        "sendErrors": 0,
+        "sourceOffsetMs": 5000.91,
+        "metrics": {
+          "cpu": {
+            "mean": 98.66750089361702,
+            "max": 99.24812399999999
+          },
+          "receiveBps": {
+            "mean": 116227450.89361702,
+            "max": 120446450
+          },
+          "transmitBps": {
+            "mean": 41175257.36170213,
+            "max": 43425810
+          }
+        }
+      },
+      {
+        "group": "C",
+        "nodeId": "C",
+        "processes": 10,
+        "connections": 400,
+        "joined": 400,
+        "publishingChannels": 100,
+        "publishers": 200,
+        "uidsPerProcess": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "expectedStreams": 600,
+        "activeStreamsMin": 600,
+        "activeStreamsMax": 600,
+        "rssGiBFirst": 3.2430381774902344,
+        "rssGiBEnd": 3.4663963317871094,
+        "rssGrowthMiBPerMinute": 56.25121531094552,
+        "pcmInputMbps": 212.76677915374296,
+        "pcmTargetMbps": 307.2,
+        "pcmRealtimeRatio": 0.6926001925577571,
+        "encodedReceiveMbps": 25.734544361488002,
+        "sendErrors": 0,
+        "sourceOffsetMs": 5000.312,
+        "metrics": {
+          "cpu": {
+            "mean": 98.58756378481013,
+            "max": 99.05838299999999
+          },
+          "receiveBps": {
+            "mean": 116058633.58649789,
+            "max": 119743000
+          },
+          "transmitBps": {
+            "mean": 41018069.07172996,
+            "max": 43880560
+          }
+        }
+      }
+    ],
+    "source0StartSpreadMs": 1.5399999999999998,
+    "source1StartSpreadMs": 0.9420000000000001,
+    "totalRealtimeRatio": 0.6938051873150862
+  },
+  "logOnlyCalibration": {
+    "taskId": "run-20261123-202213-2d68f30f66bc",
+    "state": "stopped",
+    "startedAt": "2026-11-23T20:22:24.440938586Z",
+    "finishedAt": "2026-11-23T20:29:12.311509121Z",
+    "distribution": "distributed",
+    "publisherChannels": [
+      0,
+      100,
+      100
+    ],
+    "sampleRate": 48000,
+    "audioChannels": 2,
+    "configuredSeconds": 600,
+    "machines": [
+      {
+        "group": "A",
+        "nodeId": "A",
+        "processes": 5,
+        "connections": 200,
+        "joined": 200,
+        "publishingChannels": 0,
+        "publishers": 0,
+        "uidsPerProcess": [
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "expectedStreams": 400,
+        "activeStreamsMin": 400,
+        "activeStreamsMax": 400,
+        "rssGiBFirst": 1.6109275817871094,
+        "rssGiBEnd": 1.6262168884277344,
+        "rssGrowthMiBPerMinute": 2.6030531654132387,
+        "pcmInputMbps": 0.0,
+        "pcmTargetMbps": 0.0,
+        "pcmRealtimeRatio": null,
+        "encodedReceiveMbps": 18.712555333960477,
+        "sendErrors": 0,
+        "sourceOffsetMs": null,
+        "metrics": {
+          "cpu": {
+            "mean": 21.496058214697406,
+            "max": 31.851356
+          },
+          "receiveBps": {
+            "mean": 85254327.75216138,
+            "max": 87255490
+          },
+          "transmitBps": {
+            "mean": 15342771.515850144,
+            "max": 33623220
+          }
+        }
+      },
+      {
+        "group": "B",
+        "nodeId": "B",
+        "processes": 10,
+        "connections": 400,
+        "joined": 400,
+        "publishingChannels": 100,
+        "publishers": 200,
+        "uidsPerProcess": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "expectedStreams": 600,
+        "activeStreamsMin": 600,
+        "activeStreamsMax": 600,
+        "rssGiBFirst": 3.450244903564453,
+        "rssGiBEnd": 3.6712074279785156,
+        "rssGrowthMiBPerMinute": 37.99219728199979,
+        "pcmInputMbps": 233.4949547007383,
+        "pcmTargetMbps": 307.2,
+        "pcmRealtimeRatio": 0.7600747223331326,
+        "encodedReceiveMbps": 28.121625486164376,
+        "sendErrors": 0,
+        "sourceOffsetMs": 4999.917,
+        "metrics": {
+          "cpu": {
+            "mean": 98.46338041916168,
+            "max": 99.12226199999999
+          },
+          "receiveBps": {
+            "mean": 126592057.21556886,
+            "max": 129414880
+          },
+          "transmitBps": {
+            "mean": 44797719.94011976,
+            "max": 47152250
+          }
+        }
+      },
+      {
+        "group": "C",
+        "nodeId": "C",
+        "processes": 10,
+        "connections": 400,
+        "joined": 400,
+        "publishingChannels": 100,
+        "publishers": 200,
+        "uidsPerProcess": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ],
+        "expectedStreams": 600,
+        "activeStreamsMin": 600,
+        "activeStreamsMax": 600,
+        "rssGiBFirst": 3.2156143188476562,
+        "rssGiBEnd": 3.4447975158691406,
+        "rssGrowthMiBPerMinute": 39.70507998208336,
+        "pcmInputMbps": 231.24282627199975,
+        "pcmTargetMbps": 307.2,
+        "pcmRealtimeRatio": 0.7527435751041659,
+        "encodedReceiveMbps": 28.026774499780426,
+        "sendErrors": 0,
+        "sourceOffsetMs": 4999.698,
+        "metrics": {
+          "cpu": {
+            "mean": 98.29684067261906,
+            "max": 98.931492
+          },
+          "receiveBps": {
+            "mean": 126220707.47023809,
+            "max": 130418090
+          },
+          "transmitBps": {
+            "mean": 44453482.61904762,
+            "max": 46776570
+          }
+        }
+      }
+    ],
+    "source0StartSpreadMs": 0.435,
+    "source1StartSpreadMs": 0.216,
+    "totalRealtimeRatio": 0.7564091487186492
+  },
+  "networkCapture": {
+    "A": {
+      "seconds": 6.03,
+      "groups": [
+        {
+          "direction": "rx",
+          "protocol": "UDP",
+          "mbps": 35.063,
+          "pps": 20883.7
+        },
+        {
+          "direction": "tx",
+          "protocol": "UDP",
+          "mbps": 1.189,
+          "pps": 1064.4
+        },
+        {
+          "direction": "rx",
+          "protocol": "TCP/8092",
+          "mbps": 1.337,
+          "pps": 449.5
+        },
+        {
+          "direction": "tx",
+          "protocol": "TCP/8092",
+          "mbps": 28.511,
+          "pps": 2656.4
+        },
+        {
+          "direction": "rx",
+          "protocol": "TCP/other",
+          "mbps": 0.014,
+          "pps": 37.8
+        },
+        {
+          "direction": "tx",
+          "protocol": "TCP/other",
+          "mbps": 0.023,
+          "pps": 52.9
+        }
+      ]
+    },
+    "B": {
+      "seconds": 6.04,
+      "groups": [
+        {
+          "direction": "tx",
+          "protocol": "UDP",
+          "mbps": 19.568,
+          "pps": 12232.0
+        },
+        {
+          "direction": "rx",
+          "protocol": "UDP",
+          "mbps": 52.946,
+          "pps": 31656.9
+        },
+        {
+          "direction": "tx",
+          "protocol": "TCP/8092",
+          "mbps": 0.627,
+          "pps": 140.5
+        },
+        {
+          "direction": "rx",
+          "protocol": "TCP/8092",
+          "mbps": 0.047,
+          "pps": 112.4
+        },
+        {
+          "direction": "rx",
+          "protocol": "TCP/other",
+          "mbps": 0.012,
+          "pps": 36.6
+        },
+        {
+          "direction": "tx",
+          "protocol": "TCP/other",
+          "mbps": 0.028,
+          "pps": 78.1
+        }
+      ]
+    },
+    "C": {
+      "seconds": 6.07,
+      "groups": [
+        {
+          "direction": "rx",
+          "protocol": "UDP",
+          "mbps": 52.684,
+          "pps": 31486.6
+        },
+        {
+          "direction": "tx",
+          "protocol": "UDP",
+          "mbps": 19.484,
+          "pps": 12280.5
+        },
+        {
+          "direction": "tx",
+          "protocol": "TCP/8092",
+          "mbps": 0.624,
+          "pps": 141.0
+        },
+        {
+          "direction": "rx",
+          "protocol": "TCP/8092",
+          "mbps": 0.047,
+          "pps": 111.8
+        },
+        {
+          "direction": "rx",
+          "protocol": "TCP/other",
+          "mbps": 0.028,
+          "pps": 61.4
+        },
+        {
+          "direction": "tx",
+          "protocol": "TCP/other",
+          "mbps": 0.042,
+          "pps": 100.6
+        }
+      ]
+    }
+  },
+  "previousDistributionTaskId": "run-20261123-200014-df46ed4f2ddc",
+  "userCPUProfile": {
+    "samples": 9521,
+    "lostSamples": 0,
+    "seconds": 10,
+    "frequencyHz": 99,
+    "objectPercent": {
+      "RTCSDK": 60.13,
+      "AOSL": 14.58,
+      "libc": 14.25,
+      "vDSO": 4.01,
+      "pthread": 2.75,
+      "GoHelper": 2.56
+    }
+  }
+}

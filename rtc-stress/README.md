@@ -2,6 +2,9 @@
 
 基于 Agora RTC SDK 的压测工具容器，提供 HTTP 接口控制压测任务的启动/停止，支持多路推流场景。
 
+- [sample_send_h264_pcm 使用说明](docs/sample_send_h264_pcm-usage.md)：收发模型、多 UID、常用命令与 case 对照。
+- [完整参数核对](docs/sample_send_h264_pcm-parameters.md)：参数别名、默认值、作用域和验证范围。
+
 ---
 
 ## 目录结构
@@ -17,8 +20,8 @@ rtc-stress-docker/
 ├── stress_huge.py              # 大规模压测
 ├── stress_special_2.py         # 特殊场景压测
 ├── stress_jktuchuan.py         # 极客推流压测
-├── case1_250.py                # Case1: 250 路推流
-├── case3_200au.py              # Case3: 200 路纯音频
+├── case1_250.py                # 命令生成器：当前 200 进程、400 频道、800 连接
+├── case3_200au.py              # Shell 命令：200 个观众，订阅音视频
 ├── sample_send_h264_pcm        # Agora 推流可执行文件
 ├── libagora_rtc_sdk.so         # Agora RTC SDK 动态库
 ├── libaosl.so                  # Agora OSL 动态库

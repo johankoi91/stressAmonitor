@@ -1,0 +1,80 @@
+name: ${COMPOSE_PROJECT_NAME:-rtc-stress}
+
+x-runtime: &runtime
+  image: ${RTC_IMAGE:-rtc-stress-console:0.12.3}
+  platform: linux/amd64
+  pull_policy: never
+  network_mode: host
+  restart: unless-stopped
+  init: true
+  stop_grace_period: 70s
+  mem_limit: ${CONTAINER_MEMORY:-20g}
+  pids_limit: ${CONTAINER_PIDS:-24000}
+  labels:
+    io.rtc-stress-console.managed: "1"
+  ulimits:
+    nofile: {soft: 65536, hard: 65536}
+  logging:
+    driver: json-file
+    options: {max-size: "20m", max-file: "3"}
+
+services:
+  center:
+    <<: *runtime
+    profiles: [center]
+    container_name: rtc-stress-console-center
+    command:
+      - /opt/rtc-stress-console/rtc-stress
+      - serve
+      - --listen
+      - 0.0.0.0:${CONSOLE_PORT:-8092}
+      - --data-dir
+      - /var/lib/rtc-stress-console
+      - --frontend
+      - /opt/rtc-stress-console/frontend
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, --max-time, "3", "http://127.0.0.1:${CONSOLE_PORT:-8092}/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    volumes:
+      - ${CENTER_DATA_DIR:-./data/center}:/var/lib/rtc-stress-console
+      - runs:/home/bbt/console-runs
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - netdata-lib:/opt/netdata/var/lib/netdata
+      - netdata-cache:/opt/netdata/var/cache/netdata
+
+  agent:
+    <<: *runtime
+    profiles: [agent]
+    container_name: rtc-stress-console-node-${NODE_ID:-B}
+    command: [/opt/rtc-stress-console/rtc-stress, agent, --config, /etc/rtc-stress-agent/config.json]
+    configs:
+      - source: agent-config
+        target: /etc/rtc-stress-agent/config.json
+    volumes:
+      - runs:/home/bbt/console-runs
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - netdata-lib:/opt/netdata/var/lib/netdata
+      - netdata-cache:/opt/netdata/var/cache/netdata
+
+configs:
+  agent-config:
+    content: |
+      {
+        "node": "${NODE_ID:-B}",
+        "center": "${CENTER_URL:-ws://114.132.190.201:8092/ws/agent}",
+        "workDir": "/home/bbt",
+        "graceSeconds": 45
+      }
+
+volumes:
+  runs:
+    name: ${RUNS_VOLUME:-rtc-stress-console-data}
+  netdata-lib:
+    name: ${NETDATA_LIB_VOLUME:-rtc-stress-netdata-lib}
+  netdata-cache:
+    name: ${NETDATA_CACHE_VOLUME:-rtc-stress-netdata-cache}

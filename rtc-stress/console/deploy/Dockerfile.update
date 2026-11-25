@@ -1,0 +1,6 @@
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+COPY rtc-stress /opt/rtc-stress-console/rtc-stress
+COPY frontend/ /opt/rtc-stress-console/frontend/
+COPY defaults/ /opt/rtc-stress-console/defaults/
+RUN chmod +x /opt/rtc-stress-console/rtc-stress

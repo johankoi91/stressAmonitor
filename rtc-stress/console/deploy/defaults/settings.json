@@ -1,0 +1,123 @@
+{
+  "config": {
+    "allocationPolicy": "membership",
+    "totalUids": 1000,
+    "usersPerChannel": 5,
+    "audioInputMode": "opus",
+    "audioScenario": "standard",
+    "publisherChannels": [
+      0,
+      0,
+      0
+    ],
+    "engine": "go-sdk",
+    "serviceLayout": "single",
+    "connectionsPerService": 3,
+    "allocations": [
+      {
+        "joiningChannels": 0,
+        "receiversPerJoinedChannel": 0,
+        "publishingChannels": 100,
+        "publishersPerChannel": 2,
+        "receiversPerChannel": 1,
+        "role": "A",
+        "nodeId": "A",
+        "processCount": 20,
+        "maxUidsPerProcess": 15
+      },
+      {
+        "joiningChannels": 0,
+        "receiversPerJoinedChannel": 0,
+        "publishingChannels": 100,
+        "publishersPerChannel": 2,
+        "receiversPerChannel": 1,
+        "role": "B",
+        "nodeId": "B",
+        "processCount": 20,
+        "maxUidsPerProcess": 15
+      },
+      {
+        "joiningChannels": 200,
+        "receiversPerJoinedChannel": 0,
+        "publishingChannels": 0,
+        "publishersPerChannel": 0,
+        "receiversPerChannel": 1,
+        "role": "C",
+        "nodeId": "C",
+        "processCount": 10,
+        "maxUidsPerProcess": 20
+      },
+      {
+        "joiningChannels": 200,
+        "receiversPerJoinedChannel": 0,
+        "publishingChannels": 0,
+        "publishersPerChannel": 0,
+        "receiversPerChannel": 1,
+        "role": "D",
+        "nodeId": "D",
+        "processCount": 10,
+        "maxUidsPerProcess": 20
+      }
+    ],
+    "audioLabels": [
+      "remote-decision-hq-48k-20ms.opus",
+      "expert-discussion-hq-48k-20ms.opus"
+    ],
+    "name": "立讯精密测试",
+    "channels": 200,
+    "channelPrefix": "lixun",
+    "channelStart": 1000,
+    "channelsPerProcessA": 2,
+    "usersPerProcessBC": 1,
+    "uids": [
+      10001,
+      20001,
+      30001,
+      40001,
+      50001
+    ],
+    "token": "0c0b4b61adf94de1befd7cdd78a50444",
+    "ap": "183.131.59.146",
+    "apCert": "ap.130451.agora.local",
+    "vosIp": "",
+    "vosPort": 0,
+    "useAut": false,
+    "audioFiles": [
+      "default:remote-decision-hq-48k-20ms.opus",
+      "default:expert-discussion-hq-48k-20ms.opus"
+    ],
+    "sampleRate": 48000,
+    "audioChannels": 1,
+    "durationSec": 1600,
+    "readyTimeoutSec": 600,
+    "launchIntervalMs": 100,
+    "schedule": {
+      "mode": "staggered",
+      "offsetMs": 5000,
+      "windowMs": 5000,
+      "gapMs": 500
+    }
+  },
+  "hosts": [
+    {
+      "id": "A",
+      "address": "114.132.190.201",
+      "workDir": "/home/bbt"
+    },
+    {
+      "id": "B",
+      "address": "129.204.144.125",
+      "workDir": "/home/bbt"
+    },
+    {
+      "id": "C",
+      "address": "159.75.94.60",
+      "workDir": "/home/bbt"
+    },
+    {
+      "id": "D",
+      "address": "175.178.45.250",
+      "workDir": "/home/bbt"
+    }
+  ]
+}

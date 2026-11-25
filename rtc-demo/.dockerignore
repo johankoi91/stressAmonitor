@@ -9,3 +9,5 @@ dist/
 .tools/
 
 probes/
+
+services/log-receiver/
